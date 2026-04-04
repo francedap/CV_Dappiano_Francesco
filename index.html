@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV – Francesco Dappiano</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:      #1a1a1a;
+    --muted:    #555;
+    --faint:    #999;
+    --rule:     #c8c0b4;
+    --accent:   #1e3a5f;
+    --paper:    #faf9f7;
+    --tag-bg:   #eef1f5;
+    --tag-text: #1e3a5f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e4de;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2.5rem 1rem;
+  }
+
+  .page {
+    background: var(--paper);
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm 14mm 16mm;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1.5px solid var(--accent);
+    margin-bottom: 1.4rem;
+  }
+
+  .header-name h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .header-name .subtitle {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .header-contacts {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-item {
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .contact-item a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .contact-item a:hover { text-decoration: underline; }
+
+  .contact-icon {
+    width: 13px;
+    height: 13px;
+    fill: var(--faint);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 1.35rem; }
+
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--rule);
+  }
+
+  /* ── ENTRY ── */
+  .entry {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 0 1rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-date {
+    font-size: 0.74rem;
+    color: var(--faint);
+    line-height: 1.6;
+    padding-top: 1px;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .entry-body {}
+
+  .entry-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .entry-org {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 1px;
+    font-style: italic;
+  }
+
+  .entry-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-top: 5px;
+  }
+
+  .entry-desc ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .entry-desc ul li::before {
+    content: '—';
+    color: var(--rule);
+    margin-right: 6px;
+  }
+
+  /* ── TAGS ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 0.71rem;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 2px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── LINGUE ── */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 2rem;
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 0.5px solid var(--rule);
+    font-size: 0.82rem;
+  }
+
+  .lang-name { font-weight: 500; }
+
+  .lang-level {
+    font-size: 0.74rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── VOTO BADGE ── */
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 1px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── GITHUB LINK ── */
+  .github-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .github-note a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ── GDPR FOOTER ── */
+  .gdpr {
+    margin-top: 2rem;
+    padding-top: 0.8rem;
+    border-top: 0.5px solid var(--rule);
+    font-size: 0.68rem;
+    color: var(--faint);
+    line-height: 1.6;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      width: 100%;
+      min-height: unset;
+      padding: 12mm 14mm;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-name">
+      <h1>Francesco Dappiano</h1>
+      <div class="subtitle">Perito Informatico &nbsp;·&nbsp; Studente di Informatica</div>
+    </div>
+    <div class="header-contacts">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:francedapp@gmail.com">francedapp@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <a href="tel:+393495356100">+39 349 535 6100</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20.45 20.45C18.19 22.7 15.18 24 12 24c-3.19 0-6.19-1.24-8.45-3.55C1.3 18.19 0 15.18 0 12c0-3.18 1.3-6.19 3.55-8.45C5.81 1.3 8.82 0 12 0c3.18 0 6.19 1.3 8.45 3.55C22.7 5.81 24 8.82 24 12c0 3.18-1.24 6.19-3.55 8.45zm-1.41-1.42C21.07 17.07 22.5 14.62 22.5 12c0-2.62-1.43-5.07-3.46-7.04C17.07 2.93 14.62 1.5 12 1.5S6.93 2.93 4.96 4.96C2.93 6.93 1.5 9.38 1.5 12s1.43 5.07 3.46 7.03C6.93 21.07 9.38 22.5 12 22.5s5.07-1.43 7.04-3.47zM12 5.37c3.68 0 6.68 1.42 7.06 5.16.15 1.4-.25 2.75-1.04 3.72l-1.32-1.32c.45-.66.69-1.47.6-2.33-.27-2.52-2.33-3.73-5.3-3.73-2.97 0-5.03 1.21-5.3 3.73-.09.86.15 1.67.6 2.33L5.98 14.25c-.79-.97-1.19-2.32-1.04-3.72C5.32 6.79 8.32 5.37 12 5.37zm0 3c1.67 0 3.06.58 3.42 2.02.13.52.07 1.04-.13 1.48L12 8.64 8.71 11.87c-.2-.44-.26-.96-.13-1.48C8.94 8.95 10.33 8.37 12 8.37zm0 2.37 2.55 2.55c-.65.48-1.56.77-2.55.77s-1.9-.29-2.55-.77L12 10.74zm0 3.82c1.3 0 2.5-.38 3.44-1.01l1.33 1.33C15.56 15.8 13.84 16.5 12 16.5s-3.56-.7-4.77-1.62l1.33-1.33C9.5 14.18 10.7 14.56 12 14.56z"/></svg>
+        <a href="https://www.linkedin.com/in/francesco-dappiano" target="_blank">linkedin.com/in/francesco-dappiano</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="https://github.com/francedap" target="_blank">github.com/francedap</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Competenze Tecniche</h2>
+    <div class="entry">
+      <div class="entry-date"></div>
+      <div class="entry-body">
+        
+        <div class="entry-title" style="margin-bottom: 4px;">Linguaggi di Programmazione</div>
+        <div class="tags" style="margin-bottom: 12px;">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+          <span class="tag">SQL</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ESPERIENZE LAVORATIVE -->
+  <section>
+    <h2 class="section-title">Esperienze Lavorative</h2>
+
+    <div class="entry">
+      <div class="entry-date">mar. 2022<br>– in corso</div>
+      <div class="entry-body">
+        <div class="entry-title">Barista</div>
+        <div class="entry-org">Bar Moderno / Derby Caffè – Fanetti e Dappiano &nbsp;·&nbsp; Gattinara (VC)</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Gestione del servizio al banco e preparazione di bevande</li>
+            <li>Accoglienza clienti e gestione della cassa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">mag. 2024<br>– dic. 2025</div>
+      <div class="entry-body">
+        <div class="entry-title">Collaboratore Tecnico-Educativo</div>
+        <div class="entry-org">Fondazione Mondo Digitale ETS &nbsp;·&nbsp; Roma</div>
+        <div class="entry-desc">
+          <ul>
+            <li>
+              <strong>RomeCup 2024 &amp; 2025 – Giudice di gara</strong> (maggio): valutazione tecnica dei progetti
+              nella competizione di bracci robotici ospitato alla Sapienza / Roma Tre.
+            </li>
+            <li>
+              <strong>CodingGirl – Docente</strong>: conduzione di lezioni di informatica e pensiero computazionale
+              in classi di scuola secondaria superiore, nell'ambito del progetto di inclusione digitale femminile.
+            </li>
+            <li>
+              <strong>STEMdays 2024 &amp; 2025 – Tutor</strong> (giugno): supervisione di team di studenti nella
+              progettazione, assemblaggio e programmazione di un braccio robotico in miniatura con Arduino,
+              per due edizioni consecutive.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISTRUZIONE -->
+  <section>
+    <h2 class="section-title">Istruzione</h2>
+
+    <div class="entry">
+      <div class="entry-date">2023<br>– in corso</div>
+      <div class="entry-body">
+        <div class="entry-title">Laurea Triennale in Informatica (L-31)</div>
+        <div class="entry-org">Università degli Studi del Piemonte Orientale</div>
+        <div class="entry-desc">Terzo anno del corso di laurea. Percorso con focus su algoritmi, reti, sviluppo software e sistemi operativi.</div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">2018 – 2023</div>
+      <div class="entry-body">
+        <div class="entry-title">
+          Diploma di Perito Informatico
+          <span class="badge">80 / 100</span>
+        </div>
+        <div class="entry-org">Istituto Tecnico – Indirizzo Informatica e Telecomunicazioni</div>
+        <div class="entry-desc">Specializzazione in informatica, programmazione, reti e sistemi.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGETTI PERSONALI -->
+  <section>
+    <h2 class="section-title">Progetti Personali</h2>
+    <div class="entry">
+      <div class="entry-date"></div>
+      <div class="entry-body">
+        <div class="entry-desc">
+          Tutti i progetti personali sono disponibili sul profilo GitHub.<br>
+          <span class="github-note">
+            <svg style="width:12px;height:12px;vertical-align:middle;fill:#1e3a5f;margin-right:4px" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <a href="https://github.com/francedap" target="_blank">github.com/francedap</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINGUE -->
+  <section>
+    <h2 class="section-title">Lingue</h2>
+    <div class="entry">
+      <div class="entry-date"></div>
+      <div class="entry-body">
+        <div class="lang-grid">
+          <div class="lang-item">
+            <span class="lang-name">Italiano</span>
+            <span class="lang-level">Madrelingua</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Inglese</span>
+            <span class="lang-level">B1 – Pre-intermedio (QCER)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+</body>
+</html>
